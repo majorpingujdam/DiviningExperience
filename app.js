@@ -11,13 +11,13 @@ async function getTarotReading(question) {
       // Story Template 1
       function () {
         const storyParts = [];
-        storyParts.push(`Seeking answers to the question "${question}", a young person embarked on a journey of self-discovery.\n`);
+        storyParts.push(`Seeking answers to the question "${question}", a young person embarked on a journey of self-discovery.\n\n`);
         cards.forEach((card, index) => {
           let sentence = "";
           if (index === 0) {
-            sentence = `The ${card.name} appeared, representing ${card.meaning}, signifying the beginning of their quest.\n`;
+            sentence = `The ${card.name} appeared, representing ${card.meaning}, signifying the beginning of their quest.\n\n`;
           } else if (index === cards.length - 1) {
-            sentence = `Finally, the ${card.name} emerged, symbolizing ${card.meaning}, marking the end of their transformative journey.\n`;
+            sentence = `Finally, the ${card.name} emerged, symbolizing ${card.meaning}, marking the end of their transformative journey.\n\n`;
           } else {
             const sentenceStarts = [
               `As they journeyed on, the ${card.name} manifested`,
@@ -26,7 +26,7 @@ async function getTarotReading(question) {
               `With each passing moment, the ${card.name} grew more significant`
             ];
             const randomStart = sentenceStarts[Math.floor(Math.random() * sentenceStarts.length)];
-            sentence = `${randomStart}, embodying ${card.meaning}, guiding them further along their path.\n`;
+            sentence = `${randomStart}, embodying ${card.meaning}, guiding them further along their path.\n\n`;
           }
           storyParts.push(sentence);
         });
@@ -36,13 +36,13 @@ async function getTarotReading(question) {
       // Story Template 2
       function () {
         const storyParts = [];
-        storyParts.push(`In a realm of mystical enchantment, a brave soul sought answers to the enigmatic question: "${question}".\n`);
+        storyParts.push(`In a realm of mystical enchantment, a brave soul sought answers to the enigmatic question: "${question}".\n\n`);
         cards.forEach((card, index) => {
           let sentence = "";
           if (index === 0) {
-            sentence = `As they stepped forward, the ${card.name} materialized, whispering tales of ${card.meaning}, setting the stage for an epic adventure.\n`;
+            sentence = `As they stepped forward, the ${card.name} materialized, whispering tales of ${card.meaning}, setting the stage for an epic adventure.\n\n`;
           } else if (index === cards.length - 1) {
-            sentence = `In a grand finale, the ${card.name} emerged from the mists, its essence of ${card.meaning} forever etched in their heart.\n`;
+            sentence = `In a grand finale, the ${card.name} emerged from the mists, its essence of ${card.meaning} forever etched in their heart.\n\n`;
           } else {
             const sentenceStarts = [
               `The enigmatic ${card.name} appeared, radiating with ${card.meaning}`,
@@ -61,13 +61,13 @@ async function getTarotReading(question) {
       // Story Template 3
       function () {
         const storyParts = [];
-        storyParts.push(`Amidst the chaos of an uncertain world, a seeker turned to the ancient wisdom of the tarot, desperate for clarity on the question that haunted them: "${question}".\n`);
+        storyParts.push(`Amidst the chaos of an uncertain world, a seeker turned to the ancient wisdom of the tarot, desperate for clarity on the question that haunted them: "${question}".\n\n`);
         cards.forEach((card, index) => {
           let sentence = "";
           if (index === 0) {
-            sentence = `The ${card.name} emerged from the shadows, its message of ${card.meaning} a beacon of hope in troubled times.\n`;
+            sentence = `The ${card.name} emerged from the shadows, its message of ${card.meaning} a beacon of hope in troubled times.\n\n`;
           } else if (index === cards.length - 1) {
-            sentence = `With a final flourish, the ${card.name} revealed itself, its promise of ${card.meaning} a guiding light for the path ahead.\n`;
+            sentence = `With a final flourish, the ${card.name} revealed itself, its promise of ${card.meaning} a guiding light for the path ahead.\n\n`;
           } else {
             const sentenceStarts = [
               `Whispers of ${card.meaning} echoed through the air as the ${card.name} came into focus`,
@@ -76,7 +76,7 @@ async function getTarotReading(question) {
               `The seeker's heart quickened as the ${card.name} appeared, its ${card.meaning} a tantalizing secret`
             ];
             const randomStart = sentenceStarts[Math.floor(Math.random() * sentenceStarts.length)];
-            sentence = `${randomStart}, strengthening their resolve to unravel the mysteries that lay ahead.\n`;
+            sentence = `${randomStart}, strengthening their resolve to unravel the mysteries that lay ahead.\n\n`;
           }
           storyParts.push(sentence);
         });
