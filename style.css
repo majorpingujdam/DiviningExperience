@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: rgb(159, 202, 157);
+    background-image: url('tarot.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+  }
+  
+  h1 {
+    text-align: center;
+    color: rgb(246, 243, 243);
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid rgb(255, 255, 255);
+    margin: 20px 0;
+  }
+
+  form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  input {
+    margin-bottom: 10px;
+  }
+  
+  #result {
+    margin-top: 50px; /* Add margin to the top of the result div */
+  }
+  
+  textarea {
+    margin-top: 50px; /* Add margin to the top of the textarea */
+    width: 30%; /* Set the width of the textarea to 80% of its container */
+    height: 300%;
+    resize: none; /* Disable resizing of the textarea */
+  }
+
