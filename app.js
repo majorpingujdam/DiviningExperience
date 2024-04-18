@@ -1,65 +1,86 @@
 // Function to make an API request to the Tarot API
-async function getTarotReading() {
-    const response = await fetch('https://tarotapi.dev/api/v1/cards/random?n=10');
+async function getTarotReading(question) {
+    const response = await fetch(`https://tarotapi.dev/api/v1/cards/random?n=10&q=${encodeURIComponent(question)}`);
     const data = await response.json();
     return data;
   }
   
-  // Function to generate a story based on the tarot cards
-  function generateStory(cards) {
+  // Function to generate a story based on the tarot cards and user's question
+  function generateStory(cards, question) {
     const storyTemplates = [
       // Story Template 1
       function () {
         const storyParts = [];
-        storyParts.push("Once upon a time, a young person embarked on a journey of self-discovery.");
+        storyParts.push(`Seeking answers to the question "${question}", a young person embarked on a journey of self-discovery.\n`);
         cards.forEach((card, index) => {
           let sentence = "";
           if (index === 0) {
-            sentence = `The ${card.name} appeared, representing ${card.meaning}, signifying the beginning of their quest.`;
+            sentence = `The ${card.name} appeared, representing ${card.meaning}, signifying the beginning of their quest.\n`;
           } else if (index === cards.length - 1) {
-            sentence = `Finally, the ${card.name} emerged, symbolizing ${card.meaning}, marking the end of their transformative journey.`;
+            sentence = `Finally, the ${card.name} emerged, symbolizing ${card.meaning}, marking the end of their transformative journey.\n`;
           } else {
-            sentence = `Along the way, the ${card.name} revealed itself, embodying ${card.meaning}, guiding them further along their path.`;
+            const sentenceStarts = [
+              `As they journeyed on, the ${card.name} manifested`,
+              `In a surprising turn of events, the ${card.name} revealed itself`,
+              `The ${card.name} suddenly came into focus`,
+              `With each passing moment, the ${card.name} grew more significant`
+            ];
+            const randomStart = sentenceStarts[Math.floor(Math.random() * sentenceStarts.length)];
+            sentence = `${randomStart}, embodying ${card.meaning}, guiding them further along their path.\n`;
           }
           storyParts.push(sentence);
         });
-        storyParts.push("Through the lessons and insights gained from each tarot card, the young person grew wiser and more self-aware, ready to face the world with newfound purpose and understanding.");
+        storyParts.push(`Through the lessons and insights gained from each tarot card, the young person found clarity and understanding related to their question "${question}".\n`);
         return storyParts.join(" ");
       },
       // Story Template 2
       function () {
         const storyParts = [];
-        storyParts.push("In a realm of mystical enchantment, a brave soul sought answers to life's greatest mysteries.");
+        storyParts.push(`In a realm of mystical enchantment, a brave soul sought answers to the enigmatic question: "${question}".\n`);
         cards.forEach((card, index) => {
           let sentence = "";
           if (index === 0) {
-            sentence = `As they stepped forward, the ${card.name} materialized, whispering tales of ${card.meaning}, setting the stage for an epic adventure.`;
+            sentence = `As they stepped forward, the ${card.name} materialized, whispering tales of ${card.meaning}, setting the stage for an epic adventure.\n`;
           } else if (index === cards.length - 1) {
-            sentence = `In a grand finale, the ${card.name} emerged from the mists, its essence of ${card.meaning} forever etched in their heart.`;
+            sentence = `In a grand finale, the ${card.name} emerged from the mists, its essence of ${card.meaning} forever etched in their heart.\n`;
           } else {
-            sentence = `Guided by the enigmatic ${card.name}, radiating with ${card.meaning}, they ventured deeper into the unknown.`;
+            const sentenceStarts = [
+              `The enigmatic ${card.name} appeared, radiating with ${card.meaning}`,
+              `A mysterious force drew them towards the ${card.name}, which emanated ${card.meaning}`,
+              `As if guided by an unseen hand, the ${card.name} materialized, pulsating with ${card.meaning}`,
+              `The ${card.name} danced into view, its ${card.meaning} intertwining with their destiny`
+            ];
+            const randomStart = sentenceStarts[Math.floor(Math.random() * sentenceStarts.length)];
+            sentence = `${randomStart}, urging them to venture deeper into the unknown.\n\n`;
           }
           storyParts.push(sentence);
         });
-        storyParts.push("With each step, each revelation, they pieced together the fragments of their destiny, forever changed by the profound wisdom bestowed upon them by the tarot.");
+        storyParts.push(`With each step, each revelation, they pieced together the fragments of their destiny, forever changed by the profound wisdom bestowed upon them by the tarot. The answer to their question "${question}" became clearer with each passing moment.\n`);
         return storyParts.join(" ");
       },
       // Story Template 3
       function () {
         const storyParts = [];
-        storyParts.push("Amidst the chaos of an uncertain world, a seeker turned to the ancient wisdom of the tarot.");
+        storyParts.push(`Amidst the chaos of an uncertain world, a seeker turned to the ancient wisdom of the tarot, desperate for clarity on the question that haunted them: "${question}".\n`);
         cards.forEach((card, index) => {
           let sentence = "";
           if (index === 0) {
-            sentence = `The ${card.name} emerged from the shadows, its message of ${card.meaning} a beacon of hope in troubled times.`;
+            sentence = `The ${card.name} emerged from the shadows, its message of ${card.meaning} a beacon of hope in troubled times.\n`;
           } else if (index === cards.length - 1) {
-            sentence = `With a final flourish, the ${card.name} revealed itself, its promise of ${card.meaning} a guiding light for the path ahead.`;
+            sentence = `With a final flourish, the ${card.name} revealed itself, its promise of ${card.meaning} a guiding light for the path ahead.\n`;
           } else {
-            sentence = `As the ${card.name} danced into view, whispering secrets of ${card.meaning}, the seeker's resolve grew stronger.`;
+            const sentenceStarts = [
+              `Whispers of ${card.meaning} echoed through the air as the ${card.name} came into focus`,
+              `The ${card.name} shimmered with an ethereal glow, its ${card.meaning} permeating the seeker's soul`,
+              `In a dance of shadows and light, the ${card.name} emerged, its ${card.meaning} a silent promise`,
+              `The seeker's heart quickened as the ${card.name} appeared, its ${card.meaning} a tantalizing secret`
+            ];
+            const randomStart = sentenceStarts[Math.floor(Math.random() * sentenceStarts.length)];
+            sentence = `${randomStart}, strengthening their resolve to unravel the mysteries that lay ahead.\n`;
           }
           storyParts.push(sentence);
         });
-        storyParts.push("Armed with the knowledge bestowed by the tarot, the seeker emerged from their journey, ready to navigate the twists and turns of fate with newfound clarity and purpose.");
+        storyParts.push(`Armed with the knowledge bestowed by the tarot, the seeker emerged from their journey, ready to face the challenges posed by their question "${question}" with newfound clarity and purpose.\n`);
         return storyParts.join(" ");
       }
     ];
@@ -78,7 +99,7 @@ async function getTarotReading() {
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
       <h2>Tarot Card Reading</h2>
-      <textarea rows="30" cols="50" readonly>${story}</textarea>
+      <textarea rows="30" cols="40" readonly>${story}</textarea>
     `;
   }
   
@@ -87,8 +108,8 @@ async function getTarotReading() {
     event.preventDefault();
     const question = document.getElementById('question').value;
     try {
-      const reading = await getTarotReading();
-      const story = generateStory(reading.cards);
+      const reading = await getTarotReading(question);
+      const story = generateStory(reading.cards, question);
       displayStory(story);
     } catch (error) {
       console.error('Error:', error);

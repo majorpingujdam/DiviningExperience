@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Blippo', fantasy;
     text-align: center;
-    color: rgb(159, 202, 157);
+    color: rgb(45, 255, 34);
     background-image: url('tarot.jpg');
     background-size: cover;
     background-position: center;
@@ -41,9 +41,13 @@ body {
   }
   
   textarea {
+    font-family: 'American Typewriter', sans-serif;
     margin-top: 50px; /* Add margin to the top of the textarea */
     width: 30%; /* Set the width of the textarea to 80% of its container */
     height: 300%;
     resize: none; /* Disable resizing of the textarea */
   }
 
+  .card-name {
+    font-weight: bold;
+  }
